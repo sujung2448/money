@@ -12,7 +12,7 @@
                 </div>
                 <tr>
                     <th class="w-1/4 p-2 text-center">환전계좌정보</th>
-                    <th class=""></th>
+                    <th class="pl-3">{{auth()->user()->bank}} {{auth()->user()->account}}</th>
                 </tr>
                 <tr>
                     <th class="w-1/4 p-2 text-center">환전금액</th>
@@ -88,10 +88,21 @@
                 toastr.error('환전신청은 "만원단위"로 가능합니다.', '환전금액확인!!')
                 return;
             }else{
-                console.log(2)
-                $('#debitForm').submit()
+                Swal.fire({
+                    title: '환전신청',
+                    text: "해당금액을 환전하시겠습니까?",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: '확인',
+                    cancelButtonText: '취소',
+                }).then(result => {
+                    if (result.value) {
+                        $('#debitForm').submit()
+                    } 
+                })
             }
-            // 
         }
 
     </script>

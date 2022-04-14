@@ -31,7 +31,7 @@ class DebitController extends Controller
 
     public function store(Request $request)
     {
-        // dump(auth()->user());
+        // dd(auth()->user());
         // dd($request->all());
         $validation = $request->validate([
             'inputMoney'=>'required'

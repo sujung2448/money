@@ -6,13 +6,18 @@
             @csrf
             <p>
                 <div class="form-group">
-                 <label for="email" >Email</label>
-                 <input type="email" class="form-control" name="email" id="email" placeholder="name@example.com">
+                    <label for="email" >Email</label>
+                    <input type="email" class="form-control" name="email" id="email" placeholder="name@example.com">
+                @error('email')
+                    <b class="text-danger">{{$message}}</b>
+                @enderror
                 </div>
-        
                 <div class="form-group">
-                 <label for="password" >Password</label>
-                 <input type="password" name="password" class="form-control" id="password">
+                    <label for="password" >Password</label>
+                    <input type="password" name="password" class="form-control" id="password">
+                @error('password')
+                    <b class="text-danger">{{$message}}</b>
+                @enderror
                 </div>
             </p>
                 <ul class="login_item">

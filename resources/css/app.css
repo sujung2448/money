@@ -20,7 +20,6 @@ a:hover {
     font-size: 24px;
     color: white;
     font-family: 'Fredoka';
-
 }
 
 .navbar_logo i {
@@ -76,7 +75,6 @@ a:hover {
     color: white;
 }
 
-
 .login_item li {
     font-family: 'Gothic A1';
     padding: 8px 20px;
@@ -86,8 +84,6 @@ a:hover {
     background-color: #d49466;
     border-radius: 4px;
 }
-
-
 
 
 @media screen and (max-width: 768px) {

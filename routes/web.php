@@ -16,6 +16,8 @@ use App\Http\Controllers\DebitController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('logs', [\Rap2hpoutre\LaravelLogViewer\LogViewerController::class, 'index']);
+
 
 Route::get('/', function () {
     return view('home');

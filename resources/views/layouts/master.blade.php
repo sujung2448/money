@@ -14,12 +14,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <title>@yield('title', 'VETWORLD')</title>
     <script src="https://kit.fontawesome.com/028bc43324.js" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js" integrity="sha512-lbwH47l/tPXJYG9AcFNoJaTMhGvYWhVM9YI43CT+uteTRRaiLCui8snIgyAN8XWgNjNhCqlAUdzZptso6OCoFQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css" integrity="sha512-6S2HWzVFxruDlZxI3sXOZZ4/eJ8AcxkQH1+JjSe/ONCEqR9L4Ysq5JdT5ipqtzU7WHalNwzwBv+iE51gNHJNqQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="{{asset('js/master.js')}}" defer></script>
     <link rel="stylesheet" href="{{mix('css/app.css')}}">
+    @toastr_css
 </head>
 
 <body>
@@ -39,11 +38,11 @@
         @auth()
             <li><a href="{{route('credit.credit')}}">충전신청</a></li>
             <li><a href="{{route('debit.debit')}}">환전신청</a></li>
-            <li><a href="#">보유금액</a></li>
-            <div class=""style="display:flex; align-items:center; font-size:24px; color:orange; font-family:Gothic A1;">{{number_format(auth()->user()->balance)}}</div>
-            <div class=""style="padding-right:20px; display:flex; align-items:center; font-family:Gothic A1;">원</div>
+            <div class=""style="display:flex; align-items:center; padding-left:5px; font-family:Gothic A1;">보유금액</div>
+            <div class=""style="display:flex; align-items:center; padding-left:5px; font-size:24px; color:orange; font-family:Gothic A1;">{{number_format(auth()->user()->balance)}}</div>
+            <div class=""style="display:flex; align-items:center; padding-right:20px; font-family:Gothic A1;">원</div>
             <div class=""style="display:flex; align-items:center; font-size:24px; color:orange; font-family:Gothic A1;">{{auth()->user()->name}}</div>
-            <div class=""style="padding-left:5px; display:flex; align-items:center; font-family:Gothic A1;">님</div>
+            <div class=""style="display:flex; align-items:center; padding-left:5px; font-family:Gothic A1;">님</div>
             <li><form action="/auth/logout" method="post" class="inline-block">
                 @csrf
                 <a href="{{route('auth.logout')}}"><button class="">로그아웃</button></a>
@@ -60,7 +59,9 @@
 
 @show
 @section('section')
-@show        
+@show      
+@toastr_js
+@toastr_render  
 </body>
 </html>
 

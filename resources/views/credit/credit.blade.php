@@ -90,10 +90,22 @@
                 toastr.error('충전신청은 "만원단위"로 가능합니다.', '충전금액확인!!')
                 return;
             }else{
-                console.log(2)
-                $('#creditForm').submit()
+                Swal.fire({
+                    title: '충전신청',
+                    text: "해당금액을 충전하시겠습니까?",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: '확인',
+                    cancelButtonText: '취소',
+                }).then(result => {
+                    // console.log(result)
+                    if (result.value) {
+                        $('#creditForm').submit()
+                    } 
+                })
             }
-            // 
         }
 
     </script>

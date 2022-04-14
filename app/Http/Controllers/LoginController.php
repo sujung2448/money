@@ -16,6 +16,7 @@ class LoginController extends Controller
             return redirect()->route('home');
         }
         else{
+            toastr()->error('입력정보를 확인해주세요.');
             return redirect()->route('auth.login.index');
         }
     }
