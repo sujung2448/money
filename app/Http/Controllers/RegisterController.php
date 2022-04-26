@@ -14,6 +14,7 @@ use App\Library\CommonLibrary;
 class RegisterController extends Controller
 {
    public $recommendCode;
+   public $autoLogin;
 
 
 
@@ -70,6 +71,7 @@ class RegisterController extends Controller
             // $user -> recommend_id = $codeUser->id;
             
             $user -> save();
+            
             // if($this->autoLogin){
             //     $loginInfo = $request->only(['email', 'password']);
             //     if(auth()->attempt($loginInfo)){
